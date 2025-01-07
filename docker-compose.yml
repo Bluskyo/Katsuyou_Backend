@@ -1,0 +1,19 @@
+
+services:
+
+  db:
+    image: mysql:8.0.40
+    restart: always
+    ports:
+      - "3309:3306"
+    environment:
+      MYSQL_USER:
+      MYSQL_PASSWORD:
+      MYSQL_DATABASE:
+      MYSQL_ROOT_PASSWORD:
+    volumes:
+      - JMDICT_DATA:/var/lib/mysql
+
+volumes:
+  JMDICT_DATA:
+    external: true
