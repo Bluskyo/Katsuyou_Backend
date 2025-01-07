@@ -11,6 +11,7 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
+@CrossOrigin(origins = "http://127.0.0.1:5173")
 @RestController
 public class SettingsController {
 
@@ -25,7 +26,6 @@ public class SettingsController {
     }
 
     // applies settings from frontend.
-    @CrossOrigin(origins = "http://127.0.0.1:5173")
     @PostMapping("/api/settings")
     public ResponseEntity<Settings> updateSettings (@RequestBody Settings settings) {
         if (settings != null){
@@ -34,7 +34,6 @@ public class SettingsController {
         } else return ResponseEntity.status(HttpStatus.OK).body(null);
     }
     // gets conjugation based on settings saved in backend.
-    @CrossOrigin(origins = "http://127.0.0.1:5173")
     @PostMapping("/api/conjugation")
     public ResponseEntity<Map<String, String>> applySettings(
             // Get kanji from apply settings.
