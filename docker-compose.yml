@@ -1,19 +1,25 @@
-
 services:
-
-  db:
-    image: mysql:8.0.40
+  api:
+    build: .
     restart: always
     ports:
-      - "3309:3306"
-    environment:
-      MYSQL_USER:
-      MYSQL_PASSWORD:
-      MYSQL_DATABASE:
-      MYSQL_ROOT_PASSWORD:
+      - "8080:8080"
+    networks:
+      - backend
+    depends_on:
+      - db
+
+  db:
+    build: dockerDB
+    restart: always
+    networks:
+      - backend
     volumes:
       - JMDICT_DATA:/var/lib/mysql
 
 volumes:
   JMDICT_DATA:
-    external: true
+
+networks:
+  backend:
+    driver: bridge
