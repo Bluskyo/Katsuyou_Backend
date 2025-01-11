@@ -33,5 +33,5 @@ build/
 .vscode/
 
 ### prod files ###
-/dockerDB/katsuyouMakeUsers.sql
-/src/main/resources/application-prod.properties
+katsuyouMakeUsers.sql
+application-prod.properties
