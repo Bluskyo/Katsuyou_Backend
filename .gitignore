@@ -33,5 +33,5 @@ build/
 .vscode/
 
 ### prod files ###
-katsuyouMakeUsers.sql
+katsuyouMakeUsers-Prod.sql
 application-prod.properties
