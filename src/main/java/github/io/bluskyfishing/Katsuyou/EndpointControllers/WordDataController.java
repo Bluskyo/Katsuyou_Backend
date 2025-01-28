@@ -19,17 +19,17 @@ public class WordDataController {
         this.wordDataService = wordDataService;
     }
 
-    @GetMapping("/api/{kanji}")
+    @GetMapping("/api/v1/{kanji}")
     public Kanji getEntryByKanji(@PathVariable("kanji") String kanji) {
         return wordDataService.getEntryByKanji(kanji);
     }
 
-    @GetMapping("/api/allConjugations/{kanji}")
+    @GetMapping("/api/v1/allConjugations/{kanji}")
     public ResponseEntity<Map<String, Map<String, String>>> getAllConjugations(@PathVariable("kanji") String kanji){
         return ResponseEntity.status(HttpStatus.OK).body(wordDataService.getAllConjugations(kanji));
     }
 
-    @GetMapping("/api/random")
+    @GetMapping("/api/v1/random")
     public Kanji getRandomKanji() {
         return wordDataService.getKanjiBasedSettings();
     }

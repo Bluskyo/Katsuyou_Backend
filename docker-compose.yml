@@ -1,16 +1,27 @@
 services:
-  api:
-    build: .
-    restart: always
+
+  web:
+    container_name: katsuyou-web-compose
+    image: bluskyyy/katsuyou-web
     ports:
-      - "8080:8080"
+      - "81:81"
+    depends_on:
+      - api
+    networks:
+      - backend
+
+  api:
+    container_name: katsuyou-api-compose
+    image: bluskyyy/api-test
+    restart: always
     networks:
       - backend
     depends_on:
       - db
 
   db:
-    build: dockerDB
+    container_name: katsuyou-db1-compose
+    image: bluskyyy/db-test
     restart: always
     networks:
       - backend

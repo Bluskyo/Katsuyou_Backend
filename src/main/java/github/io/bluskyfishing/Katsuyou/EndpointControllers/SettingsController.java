@@ -26,7 +26,7 @@ public class SettingsController {
     }
 
     // applies settings from frontend.
-    @PostMapping("/api/settings")
+    @PostMapping("/api/v1/settings")
     public ResponseEntity<Settings> updateSettings (@RequestBody Settings settings) {
         if (settings != null){
             setCurrentSettings(settings);
@@ -34,7 +34,7 @@ public class SettingsController {
         } else return ResponseEntity.status(HttpStatus.OK).body(null);
     }
     // gets conjugation based on settings saved in backend.
-    @PostMapping("/api/conjugation")
+    @PostMapping("/api/v1/conjugation")
     public ResponseEntity<Map<String, String>> applySettings(
             // Get kanji from apply settings.
             @RequestHeader(value = "entry") String encodedEntry,
