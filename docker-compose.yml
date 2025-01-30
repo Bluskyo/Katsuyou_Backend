@@ -3,6 +3,7 @@ services:
   web:
     container_name: katsuyou-web-compose
     image: bluskyyy/katsuyou-web
+    restart: always
     ports:
       - "81:81"
     depends_on:
@@ -12,7 +13,7 @@ services:
 
   api:
     container_name: katsuyou-api-compose
-    image: bluskyyy/api-test
+    image: bluskyyy/katsuyou-api
     restart: always
     networks:
       - backend
@@ -21,7 +22,7 @@ services:
 
   db:
     container_name: katsuyou-db1-compose
-    image: bluskyyy/db-test
+    image: bluskyyy/katsuyou-db
     restart: always
     networks:
       - backend

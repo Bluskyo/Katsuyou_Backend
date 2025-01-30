@@ -1,7 +1,7 @@
 package github.io.bluskyfishing.Katsuyou.Services;
 
 import github.io.bluskyfishing.Katsuyou.Data.*;
-import github.io.bluskyfishing.Katsuyou.EndpointControllers.SettingsController;
+import github.io.bluskyfishing.Katsuyou.Controllers.SettingsController;
 import github.io.bluskyfishing.Katsuyou.Methods.Conjugations;
 import github.io.bluskyfishing.Katsuyou.Methods.GetJLPT;
 import github.io.bluskyfishing.Katsuyou.Methods.GetTag;

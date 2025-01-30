@@ -1,4 +1,4 @@
-package github.io.bluskyfishing.Katsuyou.EndpointControllers;
+package github.io.bluskyfishing.Katsuyou.Controllers;
 import github.io.bluskyfishing.Katsuyou.Models.Kanji;
 import github.io.bluskyfishing.Katsuyou.Services.WordDataService;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@CrossOrigin(origins = "http://127.0.0.1:5173")
+@CrossOrigin
 @RestController
 public class WordDataController {
 

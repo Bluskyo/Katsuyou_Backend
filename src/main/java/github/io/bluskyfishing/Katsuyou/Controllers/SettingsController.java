@@ -1,4 +1,4 @@
-package github.io.bluskyfishing.Katsuyou.EndpointControllers;
+package github.io.bluskyfishing.Katsuyou.Controllers;
 
 import github.io.bluskyfishing.Katsuyou.Methods.GetTag;
 import github.io.bluskyfishing.Katsuyou.Models.Settings;
@@ -11,7 +11,7 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
-@CrossOrigin(origins = "http://127.0.0.1:5173")
+@CrossOrigin
 @RestController
 public class SettingsController {
 
