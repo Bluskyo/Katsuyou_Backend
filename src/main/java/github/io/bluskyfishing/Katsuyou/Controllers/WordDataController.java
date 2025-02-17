@@ -20,8 +20,8 @@ public class WordDataController {
     }
 
     @GetMapping("/api/v1/{kanji}")
-    public Kanji getEntryByKanji(@PathVariable("kanji") String kanji) {
-        return wordDataService.getEntryByKanji(kanji);
+    public ResponseEntity<Kanji> getEntryByKanji(@PathVariable("kanji") String kanji) {
+        return ResponseEntity.status(HttpStatus.OK).body(wordDataService.getEntryByKanji(kanji));
     }
 
     @GetMapping("/api/v1/allConjugations/{kanji}")

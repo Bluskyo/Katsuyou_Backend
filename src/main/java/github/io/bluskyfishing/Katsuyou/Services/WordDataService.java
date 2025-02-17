@@ -12,8 +12,11 @@ import github.io.bluskyfishing.Katsuyou.Repositories.KanjiRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.*;
+
+import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Service
 public class WordDataService {
@@ -33,7 +36,12 @@ public class WordDataService {
     }
 
     public Kanji getEntryByKanji(String kanji) {
-        return kanjiRepository.findEntryByKanji(kanji).getFirst();
+       var findKanji = kanjiRepository.findEntryByKanji(kanji);
+        if (!findKanji.isEmpty()) {
+            return kanjiRepository.findEntryByKanji(kanji).getFirst();
+        } else {
+            throw new ResponseStatusException(NOT_FOUND, "Unable to find resource");
+        }
     }
 
     public Kanji getKanjiBasedSettings() {
@@ -61,7 +69,6 @@ public class WordDataService {
 
         return kanjiRepository.findEntryByKanji(kanji).getFirst();
     }
-
 
     public Map<String, Map<String, String>> getAllConjugations(String kanji) {
 
